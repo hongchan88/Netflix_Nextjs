@@ -22,3 +22,9 @@
 - Deployed on Vercel
 
 - Live website on https://netflix-noogle-search-movie.vercel.app/
+
+## Features
+
+- Search Netflix movie by Title, Year , Director , Country (case sensitive)
+
+- Click a card will redirect to google search page of that movie.
