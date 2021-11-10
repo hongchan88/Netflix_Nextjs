@@ -38,7 +38,10 @@ const driver = neo4j.driver(
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
-const apolloServer = new ApolloServer({ schema: neoSchema.schema });
+const apolloServer = new ApolloServer({
+  schema: neoSchema.schema,
+  introspection: true,
+});
 
 const startServer = apolloServer.start();
 
