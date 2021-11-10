@@ -46,7 +46,7 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader(
     "Access-Control-Allow-Origin",
-    `${process.env.VERCEL_URL}/api/graphql`
+    "https://netflix-noogle-search-movie.vercel.app/api/graphql"
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
