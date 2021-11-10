@@ -1,7 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
 const MovieByMain = ({ query, data }) => {
   console.log(data);

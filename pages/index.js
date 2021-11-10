@@ -1,22 +1,21 @@
 import styles from "../styles/Home.module.css";
 
-import client from "./client";
+import client from "../component/client";
 
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
-import MoviebyTitle from "./component/moviebyTitle";
-import MovieByYear from "./component/movieByYear";
-import MovieByDirector from "./component/movieByDirector";
-import MovieByCountry from "./component/movieByCountry";
-import MovieByMain from "./component/movieByMain";
+import MoviebyTitle from "../component/moviebyTitle";
+import MovieByYear from "../component/movieByYear";
+import MovieByDirector from "../component/movieByDirector";
+import MovieByCountry from "../component/movieByCountry";
+import MovieByMain from "../component/movieByMain";
 
 function App({ mainData }) {
   const { register, handleSubmit, resetField } = useForm();
   const [searchData, setSearchOption] = useState({ search: "default" });
 
-  console.log(mainData);
   // useEffect(() => {
   //   if (!titleLoading) {
   //     setMovieData(byTitleData);
@@ -105,7 +104,7 @@ function App({ mainData }) {
 
 export default App;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: gql`
       query Query {

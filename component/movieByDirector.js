@@ -1,7 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
 const MOVIE_BY_DIRECTOR = gql`
   query Query($director: String, $limit: Int) {

@@ -1,48 +1,45 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
-const MOVIE_BY_COUNTRY = gql`
-  query Query($country: String, $limit: Int) {
-    countries(where: { country: $country }) {
-      title(options: { limit: $limit }) {
-        Title
-        release {
-          release_year
-        }
-        director {
-          director
-        }
-        country {
-          country
-        }
+const MOVIE_BY_TITLE = gql`
+  query Query($title: String!, $limit: Int) {
+    titles(where: { Title: $title }, options: { limit: $limit }) {
+      Title
+      director {
+        director
+      }
+      release {
+        release_year
+      }
+      country {
+        country
       }
     }
   }
 `;
 
-const MovieByCountry = ({ query }) => {
+const MoviebyTitle = ({ query }) => {
   console.log(query);
   const {
-    data,
-    loading,
+    data: byTitleData,
+    loading: titleLoading,
 
-    refetch,
-  } = useQuery(MOVIE_BY_COUNTRY, {
+    refetch: titleRefetch,
+  } = useQuery(MOVIE_BY_TITLE, {
     variables: {
-      country: query?.title,
+      title: query?.title,
       limit: parseInt(query?.limit),
     },
   });
-  console.log(data);
   return (
     <div className={styles.grid}>
-      {loading
+      {titleLoading
         ? "Loading..."
-        : data?.countries.length === 0
+        : byTitleData?.titles?.length === 0
         ? "No result / Please check your spelling or search option"
-        : data?.countries[0]?.title.map((movie, idx) => {
+        : byTitleData?.titles?.map((movie, idx) => {
             return (
               <a
                 href={`https://www.google.com/search?q=${movie.Title}`}
@@ -62,4 +59,4 @@ const MovieByCountry = ({ query }) => {
   );
 };
 
-export default MovieByCountry;
+export default MoviebyTitle;
