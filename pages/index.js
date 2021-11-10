@@ -39,7 +39,7 @@ function App({ mainData }) {
         <h1 className={styles.title}>Welcome to Noogle</h1>
 
         <p className={styles.description}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <p>
               <select name="Search by" {...register("search")}>
                 <option value="default">Search option</option>
@@ -55,7 +55,7 @@ function App({ mainData }) {
                 <option value="100">100</option>
               </select>
               <input type="text" {...register("title")} />
-              <input type="submit" value="search" />
+              <input type="submit" value="SEARCH" />
             </p>
           </form>
         </p>

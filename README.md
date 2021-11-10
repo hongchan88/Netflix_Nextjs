@@ -1,17 +1,24 @@
-### TAFE Emerging TECH Project
+### TAFE Emerging Tech Project
 
-## Used TECH
+## Used Technologies
 
-- neo4J
+- Neo4J
+- ReactJs
 - NextJS
+- Apollo Server
 - GraphQL
+- Vercel
 
-## uploaded neo4j database on Neo4j AuraDB (cloud DB)
+## Installation description
 
-## Using Apollo server , Neo4jGraphql , Neo4j driver to connect with Aura DB
+- Created graph data on desktop Neo4j with Netflix movie dataset. Exported DB as .dump file
 
-## Build Fronted and Backend on NextJS
+- uploaded DB file on Neo4j AuraDB (cloud DB)
 
-## Deployed on Vercel
+- Using Apollo server , Neo4jGraphql , Neo4j driver libary to connect with neo4j Aura DB
 
-## Live website on https://netflix-noogle-search-movie.vercel.app/
+- Build Fronted and Backend on NextJS
+
+- Deployed on Vercel
+
+- Live website on https://netflix-noogle-search-movie.vercel.app/
