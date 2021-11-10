@@ -14,12 +14,14 @@ const MovieByMain = ({ query, data }) => {
     <div className={styles.grid}>
       {!randomData
         ? "Loading..."
-        : randomData.map((movie) => {
+        : randomData.map((movie, idx) => {
             return (
               <a
                 href={`https://www.google.com/search?q=${movie.Title}`}
                 className={styles.card}
                 target="_blank"
+                rel="noreferrer"
+                key={idx}
               >
                 <h2>{movie.Title}</h2>
                 <p>{movie.director.director}</p>

@@ -42,12 +42,14 @@ const MovieByYear = ({ query }) => {
         ? "Loading..."
         : data["releases"][0]?.title?.length === 0
         ? "No result / Please check your spelling or search option"
-        : data["releases"][0]?.title?.map((movie) => {
+        : data["releases"][0]?.title?.map((movie, idx) => {
             return (
               <a
                 href={`https://www.google.com/search?q=${movie.Title}`}
                 className={styles.card}
                 target="_blank"
+                rel="noreferrer"
+                key={idx}
               >
                 <h2>{movie.Title}</h2>
                 <p>{movie.director.director}</p>

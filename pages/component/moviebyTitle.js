@@ -39,12 +39,14 @@ const MoviebyTitle = ({ query }) => {
         ? "Loading..."
         : byTitleData?.titles?.length === 0
         ? "No result / Please check your spelling or search option"
-        : byTitleData?.titles?.map((movie) => {
+        : byTitleData?.titles?.map((movie, idx) => {
             return (
               <a
                 href={`https://www.google.com/search?q=${movie.Title}`}
                 className={styles.card}
                 target="_blank"
+                rel="noreferrer"
+                key={idx}
               >
                 <h2>{movie.Title}</h2>
                 <p>{movie.director.director}</p>
