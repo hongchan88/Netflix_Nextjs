@@ -1,7 +1,11 @@
 import "../styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-import client from "../component/client.js";
+export const client = new ApolloClient({
+  uri: `${process.env.VERCEL_URL}/api/graphql`,
+  cache: new InMemoryCache(),
+});
 
 function MyApp({ Component, pageProps }) {
   return (

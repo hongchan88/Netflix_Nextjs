@@ -1,7 +1,5 @@
 import styles from "../styles/Home.module.css";
 
-import client from "../component/client";
-
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 
@@ -11,6 +9,7 @@ import MovieByYear from "../component/movieByYear";
 import MovieByDirector from "../component/movieByDirector";
 import MovieByCountry from "../component/movieByCountry";
 import MovieByMain from "../component/movieByMain";
+import { client } from "./_app";
 
 function App({ mainData }) {
   const { register, handleSubmit, resetField } = useForm();
