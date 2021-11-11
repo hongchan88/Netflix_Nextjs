@@ -37,6 +37,7 @@ function App({ mainData }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Noogle</h1>
+        <h2 className={styles.subtitle}>brought to you by NETFLIX</h2>
 
         <p className={styles.description}>
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -62,7 +63,7 @@ function App({ mainData }) {
 
         {searchData?.search === "default" ? (
           <>
-            <h1>Random Netflix Movies</h1>
+            <h1>Noogle Recommends</h1>
             <MovieByMain data={mainData} />
           </>
         ) : null}
