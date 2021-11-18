@@ -12,7 +12,7 @@ import MovieByMain from "../component/movieByMain";
 import { client } from "./_app";
 
 function App({ mainData }) {
-  const { register, handleSubmit, resetField } = useForm();
+  const { register, handleSubmit, resetField, watch } = useForm();
   const [searchData, setSearchOption] = useState({ search: "default" });
 
   // useEffect(() => {
@@ -25,9 +25,13 @@ function App({ mainData }) {
 
   const onSubmit = (data) => {
     console.log(data);
+    if (data.title === "" && data.search !== "default") {
+      alert(`Please Type ${data.search}`);
+      return;
+    }
     setSearchOption(data);
   };
-  console.log(searchData);
+
   return (
     <div className={styles.container}>
       <title>Create Next App</title>
@@ -39,27 +43,31 @@ function App({ mainData }) {
         <h1 className={styles.title}>Welcome to Noogle</h1>
         <h2 className={styles.subtitle}>brought to you by NETFLIX</h2>
 
-        <p className={styles.description}>
+        <div className={styles.description}>
           <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-            <p>
-              <select name="Search by" {...register("search")}>
-                <option value="default">Search option</option>
-                <option value="title">Search By Title</option>
-                <option value="year">Search By Year</option>
-                <option value="director">Search By Director</option>
-                <option value="country">Search By Country</option>
-              </select>
-              <select name="limit" {...register("limit")}>
-                <option value="5">Result Limit 5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="100">100</option>
-              </select>
-              <input type="text" {...register("title")} />
-              <input type="submit" value="SEARCH" />
-            </p>
+            <select name="Search by" {...register("search")}>
+              <option value="default">Search By Luck</option>
+              <option value="title">Search By Title</option>
+              <option value="year">Search By Year</option>
+              <option value="director">Search By Director</option>
+              <option value="country">Search By Country</option>
+            </select>
+            <select name="limit" {...register("limit")}>
+              <option value="5">Result Limit 5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="100">100</option>
+            </select>
+            {watch("search") === "default" || watch("search") === undefined ? (
+              <input type="submit" value="I'm feeling lucky" />
+            ) : (
+              <>
+                <input type="text" {...register("title")} />
+                <input type="submit" value="SEARCH" />{" "}
+              </>
+            )}
           </form>
-        </p>
+        </div>
 
         {searchData?.search === "default" ? (
           <>
