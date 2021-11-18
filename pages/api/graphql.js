@@ -2,6 +2,7 @@ import { gql, ApolloServer } from "apollo-server-micro";
 import { Neo4jGraphQL } from "@neo4j/graphql";
 import neo4j from "neo4j-driver";
 
+// defined typedefs in graphql schema to communicate with neo4j database.
 const typeDefs = gql`
   type Title {
     show_id: String
@@ -30,14 +31,16 @@ const typeDefs = gql`
   }
 `;
 
-console.log(process.env.NEO4J_PASS, process.env.NEO4J_URI);
+// communicate with auraDB using neo4jdriver
 const driver = neo4j.driver(
   process.env.NEO4J_URI,
   neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASS)
 );
 
+// Neo4jGraphql library will converts neo4j database to graphql database
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
+// apollo server will get neoschema
 const apolloServer = new ApolloServer({
   schema: neoSchema.schema,
 });

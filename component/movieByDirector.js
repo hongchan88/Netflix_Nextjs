@@ -4,8 +4,8 @@ import styles from "../styles/Home.module.css";
 
 const MOVIE_BY_DIRECTOR = gql`
   query Query($director: String, $limit: Int) {
-    directors(where: { director: $director }) {
-      title(options: { limit: $limit }) {
+    directors(where: { director: $director }, options: { limit: $limit }) {
+      title {
         Title
         release {
           release_year

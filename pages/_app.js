@@ -5,7 +5,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 export const client = new ApolloClient({
   uri:
     process.env.NODE_ENV === "production"
-      ? "  https://netflix-noogle-search-movie.vercel.app/api/graphql"
+      ? "https://netflix-noogle-search-movie.vercel.app/api/graphql"
       : "http://localhost:3000/api/graphql",
 
   cache: new InMemoryCache(),
