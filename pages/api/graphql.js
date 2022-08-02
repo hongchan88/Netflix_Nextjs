@@ -49,11 +49,7 @@ const startServer = apolloServer.start();
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://studio.apollographql.com",
-    "https://netflix-noogle-search-movie.vercel.app/api/graphql"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
