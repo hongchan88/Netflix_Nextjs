@@ -1,6 +1,6 @@
 // import styles from '../styles/Home.module.css';
 import styles from './styles.module.scss';
-
+import { FaLinkedin, FaGithub, FaGlobe } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
@@ -113,9 +113,47 @@ function App() {
           </div>
         )}
       </main>
-
       <footer className={styles.footer}>
-        <p>Built with Nextjs and developed by Hong</p>
+        <p className={styles.footerBuilt}>
+          Built with
+          <img
+            src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'
+            alt='Next.js'
+            style={{
+              width: '20px',
+              height: '20px',
+              marginLeft: '5px',
+              marginRight: '5px',
+            }}
+          />
+          and ❤️ by Hong Seo
+        </p>
+        <p className={styles.footerLinks}>
+          <a
+            href='https://www.linkedin.com/in/hong-seo/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaLinkedin /> LinkedIn
+          </a>{' '}
+          |
+          <a
+            href='https://github.com/hongchan88'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaGithub /> GitHub
+          </a>{' '}
+          |
+          <a
+            href='https://portfolio-hong-seo-q5ag-aym8gq69o-hongchan88s-projects.vercel.app/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaGlobe /> Portfolio
+          </a>
+        </p>
+        <p>&copy; {new Date().getFullYear()} Hong. All rights reserved.</p>
       </footer>
     </div>
   );
